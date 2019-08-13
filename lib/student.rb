@@ -13,6 +13,7 @@ class Student
   def self.all
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
+<<<<<<< HEAD
     sql = <<-SQL
       SELECT *
       FROM students
@@ -60,12 +61,21 @@ class Student
       self.new_from_db(row)
     end.first
   end
+=======
+     sql = <<-SQL
+      SELECT *
+      FROM students
+      
+    SQL
+ end
+>>>>>>> c496e17edf4b55fb4185bca7d188f748779fce05
 
 def self.all_students_in_grade_9
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = 9
+<<<<<<< HEAD
       SQL
     
     DB[:conn].execute(sql).map do |row|
@@ -83,6 +93,14 @@ def self.students_below_12th_grade
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
+=======
+       
+    SQL
+    
+    DB[:conn].execute(sql, grade).map do |row|
+      self.new_from_db(row)
+    end.first
+>>>>>>> c496e17edf4b55fb4185bca7d188f748779fce05
 end
   def self.find_by_name(name)
     # find the student in the database given a name
